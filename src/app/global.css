@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #333333;
 }
@@ -34,3 +38,22 @@ h1, h2, h3, p {
     text-align: center;
 }
 
+.Hero {
+    position: relative;
+    text-align: center;
+}
+
+.heroImg {
+    max-width: 1200px;
+    height: auto;
+}
+
+
+.CTA {
+    font-size: 125px;
+    position: absolute;
+    text-align: left;
+    top: 25px;
+    left: 25px;
+    color: #ffa500;
+}

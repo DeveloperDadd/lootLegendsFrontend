@@ -1,0 +1,16 @@
+import React from "react";
+import Link from "next/link";
+import { useGlobalState } from "../context/GlobalState";
+import { useRouter } from "next/navigation";
+import HeroImg from './HeroImg';
+
+export default function Hero() {
+    return(
+        <div className="Hero">
+            <div className="heroText">
+                <h1 className="CTA">Unite<br /><br/>Conquer<br/><br/>Loot<br/></h1>
+            </div>
+            <HeroImg />
+        </div>
+    )
+}

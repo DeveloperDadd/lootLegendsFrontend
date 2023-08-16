@@ -2,12 +2,12 @@ import React from "react";
 import Link from "next/link";
 import { useGlobalState } from "../context/GlobalState";
 import { useRouter } from "next/navigation";
-import 
 
-export default function Hero() {
+
+export default function HeroImg() {
     return (
         <>
-            <img src="https://github.com/DeveloperDadd/lootLegendsFrontend/blob/main/src/images/hero%20image.png?raw=true" />
+            <img className="heroImg" src="https://github.com/DeveloperDadd/lootLegendsFrontend/blob/main/src/images/hero%20image.png?raw=true" />
         </>
     )
 }
