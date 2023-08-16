@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useGlobalState } from '../../context/GlobalState';
 import authService from '../../services/auth.service';
 import jwtDecode from 'jwt-decode';
-import Header from '../../components/Header';
+import Header from '../../components/Navbar';
 
 export default function Login() {
     const router = useRouter();
