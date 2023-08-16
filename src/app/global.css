@@ -1,5 +1,5 @@
 body {
-    background-color: #f5f5f5;
+    background-color: #333333;
 }
 
 .maxContainer {
@@ -30,7 +30,7 @@ button {
 }
 
 h1, h2, h3, p {
-    color: #333333;
+    color: #f5f5f5;
     text-align: center;
 }
 
