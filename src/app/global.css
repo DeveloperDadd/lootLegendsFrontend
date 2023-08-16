@@ -19,14 +19,14 @@ body {
 
 .nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: 15px 0;
 }
 
 .smallicon {
     height: auto;
-    width: 50%;
+    max-width: 300px;
 }
 
 
@@ -120,7 +120,34 @@ input {
     margin-top: 20px;
 }
 
+.footer {
+    display: flex;
+}
+
 ul {
     list-style-type: none;
     display: flex;
 }
+
+.icon {
+    filter: invert(37%) sepia(100%) saturate(1666%) hue-rotate(131deg) brightness(94%) contrast(102%);
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.otherLinks {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: #00a85e
+    
+}
+
