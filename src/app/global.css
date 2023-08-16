@@ -2,6 +2,8 @@
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -26,7 +28,7 @@ body {
 }
 
 
-button {
+.registerButton, button {
     border-radius: 5px;
     border: none;
     background-color: #00a85e;
@@ -35,9 +37,21 @@ button {
     margin: 0 10px;
 }
 
-h1, h2, h3, p {
+.registerButton:hover, button:hover{
+    background-color: green;
+    cursor: pointer;
+}
+
+h1, h2, h3 {
     color: #f5f5f5;
     text-align: center;
+    font-family: 'Lato';
+}
+
+p {
+    color: #f5f5f5;
+    text-align: left;
+    font-family: 'Montserrat';
 }
 
 .Hero {
@@ -57,5 +71,39 @@ h1, h2, h3, p {
     text-align: left;
     top: 25px;
     left: 25px;
-    color: #ffa500;
+    color: #00a85e;
+    font-family: 'Lato';
+    font-weight: 700;
 }
+
+.registerContainer {
+    position: absolute;
+    top: 200px;
+    border-radius: 15px;
+    right: 30px;
+    background-color: #333333;
+    font-family: 'Lato';
+    opacity: .9;
+    display: flex;
+}
+
+.formHeader {
+    margin-top: 10px;
+    color: #00a85e
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    margin: 10px;
+    color:#f5f5f5;
+}
+
+input {
+    border-radius: 7px;
+    color: #333333;
+}
+
