@@ -3,7 +3,7 @@ import AuthService from "../../services/auth.service";
 import { useRouter } from "next/navigation";
 import { useGlobalState } from "../../context/GlobalState";
 
-function Register() {
+export default function Register() {
   const [state, dispatch] = useGlobalState();
   const router = useRouter();
   const [user, setUser] = useState({
@@ -107,5 +107,3 @@ function Register() {
     </div>
   );
 }
-
-export default Register;

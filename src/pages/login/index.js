@@ -5,7 +5,7 @@ import authService from '../../services/auth.service';
 import jwtDecode from 'jwt-decode';
 import Header from '../../components/Header';
 
-function Page() {
+export default function Login() {
     const router = useRouter();
 
     const [ state, dispatch ] = useGlobalState();
@@ -73,5 +73,3 @@ function Page() {
         </div>
     )
 }
-
-export default Page

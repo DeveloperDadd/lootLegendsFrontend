@@ -3,16 +3,12 @@ import Link from "next/link";
 import { useGlobalState } from "../context/GlobalState";
 import { useRouter } from "next/navigation";
 
-function Header() {
+export default function Header() {
   const [state, dispatch] = useGlobalState();
 
   return (
     <div>
-        <div>
-        <h1>Header</h1>
-        </div>
+        <h1>Loot Legends</h1>
     </div>
   );
 }
-
-export default Header;
