@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function SmallIcon() {
     return(
         <>
-            <img className="smallicon" src="https://raw.githubusercontent.com/DeveloperDadd/lootLegendsFrontend/a0a54c894f8c91f1cf492fe69dd4059bb3b46735/src/images/logo-no-background.svg" />
+            <img className="smallicon img-fluid" src="https://raw.githubusercontent.com/DeveloperDadd/lootLegendsFrontend/a0a54c894f8c91f1cf492fe69dd4059bb3b46735/src/images/logo-no-background.svg" />
         </>
     )
 }

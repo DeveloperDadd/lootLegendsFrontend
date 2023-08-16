@@ -7,7 +7,7 @@ import Register from '../pages/Register/Register'
 
 export default function Hero() {
     return(
-        <div className="Hero">
+        <div className="Hero container-fluid">
             <div className="heroText">
                 <h1 className="CTA">Unite<br /><br/>Conquer<br/><br/>Loot<br/></h1>
             </div>
