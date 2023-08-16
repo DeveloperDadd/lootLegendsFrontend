@@ -8,10 +8,12 @@ import Button from './Button.js';
 export default function Navbar() {
   const [state, dispatch] = useGlobalState();
   return (
-    <div>
+    <div className="nav">
         <SmallIcon />
-        <Button />
-        <Button />
+        <div className="buttonsList">
+          <Button classname="button1" text="About Us"/>
+          <Button className="button3" text="Sign in" />
+        </div>
     </div>
   );
 }

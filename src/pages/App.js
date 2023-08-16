@@ -4,8 +4,8 @@ import About from './about';
 
 export default function App() {
     return(
-    <>
+    <div className='maxContainer'>
         <Header/>
         <About />
-    </>)
+    </div>)
 }

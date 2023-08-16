@@ -3,10 +3,10 @@ import Link from "next/link";
 import { useGlobalState } from "../context/GlobalState";
 import { useRouter } from "next/navigation";
 
-export default function Button() {
+export default function Button(props) {
     return(
         <>
-            <button>Submit</button>
+            <button>{props.text}</button>
         </>
     )
 }
