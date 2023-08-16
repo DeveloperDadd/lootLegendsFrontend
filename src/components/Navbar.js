@@ -11,8 +11,8 @@ export default function Navbar() {
     <div className="nav">
         <SmallIcon />
         <div className="buttonsList">
-          <Button classname="button1" text="About Us"/>
-          <Button className="button3" text="Sign in" />
+          <Button text="About Us"/>
+          <Button text="Sign in" />
         </div>
     </div>
   );
