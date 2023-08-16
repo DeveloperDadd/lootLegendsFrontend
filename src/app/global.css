@@ -8,6 +8,8 @@
 
 body {
     background-color: #333333;
+    display: flex;
+    justify-content: center;
 }
 
 .maxContainer {
@@ -33,7 +35,7 @@ body {
     border: none;
     background-color: #00a85e;
     color: white;
-    padding: 5px; 
+    padding: 10px; 
     margin: 0 10px;
 }
 
