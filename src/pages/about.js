@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function About() {
     return <div>
@@ -22,5 +24,6 @@ export default function About() {
 
     <h2>Join the Legends</h2>
     <p>Loot Legends is more than a destination; it's a movement driven by the collective passion of gamers who believe in the power of connection and shared experiences. Whether you're a casual player, a competitive champion, or anything in between, you're invited to join our community of Legends. Let's embark on this epic journey together, where every game is a story waiting to be told, and every victory is a testament to the spirit of camaraderie that defines Loot Legends. Join us today and be a part of the legacy.</p>
+    <Footer />
   </div>
   }
