@@ -4,18 +4,19 @@ import { useGlobalState } from '../../context/GlobalState';
 import authService from '../../services/auth.service';
 import jwtDecode from 'jwt-decode';
 import Header from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 export default function Login() {
     const router = useRouter();
 
-    const [ state, dispatch ] = useGlobalState();
+    const { state, dispatch } = useGlobalState();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     function handleLogin(e) {
         e.preventDefault();
-        // console.log(email.current.value , password.current.value , "HERE")
+        const username = email;
         authService
             .login(email, password)
             .then(async (resp) => {
@@ -32,7 +33,6 @@ export default function Login() {
 
     return (
         <div>
-            <Header />
             <div className='flex'>
                 <form
                     onSubmit={handleLogin}
@@ -70,6 +70,7 @@ export default function Login() {
                     </div>
                 </form>
             </div>
+            <Footer />
         </div>
     )
 }
