@@ -11,7 +11,7 @@ body {
 }
 
 .maxContainer {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -149,7 +149,16 @@ a {
     
 }
 
-.browse {
-    height: 1000px;
+
+.gamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
 }
 
+.card {
+    border: none;
+    background-color: #f5f5f5;
+    color: #007acc;
+}
