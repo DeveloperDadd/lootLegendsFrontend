@@ -6,7 +6,6 @@ import SmallIcon from './SmallIcon.js';
 import Button from './Button.js';
 
 export default function Navbar({ onPageChange }) {
-  const [state, dispatch] = useGlobalState();
   return (
     <div className="nav">
         <SmallIcon />

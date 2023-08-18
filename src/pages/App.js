@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Home from './Home';
 import About from './About';
 import Login from './login/index';
+import { GlobalStateProvider } from '../context/GlobalState';
 
 export default function App() {
     const [currentPage, setCurrentPage] = useState('home');
@@ -14,10 +15,13 @@ export default function App() {
       };
 
     return(
-    <div className='maxContainer container-fluid'>
+    <GlobalStateProvider>
+      <div className='maxContainer container-fluid'>
         <Navbar onPageChange={handlePageChange} />
         {currentPage === 'home' && <Home />}
         {currentPage === 'about' && <About />}
         {currentPage === 'login' && <Login />}
-    </div>)
+    </div>
+    </GlobalStateProvider>
+    )
 }
