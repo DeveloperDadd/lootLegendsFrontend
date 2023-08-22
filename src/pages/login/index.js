@@ -3,7 +3,10 @@ import React, { useState } from 'react'
 import { useGlobalState } from '../../context/GlobalState';
 import authService from '../../services/auth.service';
 import jwtDecode from 'jwt-decode'; //<---- Whats that?
-import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import Navbar from '../../components/navbar';
+
+
 
 function Login() {
     const router = useRouter();
@@ -19,7 +22,6 @@ function Login() {
         authService
             .login(email, password)
             .then(async (resp) => {
-                console.log(resp)
                 let data = jwtDecode(resp.access)
                 await dispatch({
                     currentUserToken: resp.access,
@@ -32,7 +34,7 @@ function Login() {
 
     return (
         <div>
-          <Navbar />
+            <Navbar />
             <div className='flex'>
                 <form
                     onSubmit={handleLogin}
@@ -70,6 +72,7 @@ function Login() {
                     </div>
                 </form>
             </div>
+            <Footer />
         </div>
     )
 }

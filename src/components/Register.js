@@ -32,7 +32,7 @@ export default function Register() {
       currentUserToken: state.currentUserToken,
       currentUser: state.currentUser?.user_id,
     });
-    router.push("/");
+    router.push("/dashboard");
   }
 
   return (
