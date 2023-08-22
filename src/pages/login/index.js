@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { useGlobalState } from '../../context/GlobalState';
 import authService from '../../services/auth.service';
 import jwtDecode from 'jwt-decode';
-import Header from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
 export default function Login() {

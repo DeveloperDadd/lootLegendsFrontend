@@ -56,7 +56,7 @@ import {
           },
         });
   
-        await this.login(email, password);
+        await this.login(email, password, username);
       } catch (error) {
         return error.response;
       }

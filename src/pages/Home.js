@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Browse from '../components/Browse';
+import Search from '../components/Search';
 import Footer from '../components/Footer';
+import Browse from '../components/Browse';
 
 export default function Home() {
     return(
         <>
         <Hero />
+        <Search />
         <Browse />
         <Footer />
         </>
