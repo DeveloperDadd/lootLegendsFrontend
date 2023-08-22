@@ -1,11 +1,10 @@
 import Link from "next/link";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './app';
-import 
+import MyApp from "./_app";
 
-export default function Home() {
+export default function Index() {
     return <div>
-      <App />
+      <MyApp />
     </div>
   }

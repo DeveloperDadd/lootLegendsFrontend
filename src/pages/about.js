@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 export default function About() {
     
     return (<div>
-      <Navbar />
       <h1>About Loot Legends: Uniting Gamers, Forging Legends</h1>
     <p>At Loot Legends, our passion for gaming knows no bounds. We've built a vibrant and inclusive online sanctuary that brings together gamers from all walks of life, united by their love for virtual adventures, strategic battles, and the pursuit of epic loot. Our journey began with a simple yet powerful idea: to create a space where players could connect, share, and thrive within a community that understands and celebrates the essence of gaming.</p>
 
@@ -27,6 +26,5 @@ export default function About() {
 
     <h2>Join the Legends</h2>
     <p>Loot Legends is more than a destination; it's a movement driven by the collective passion of gamers who believe in the power of connection and shared experiences. Whether you're a casual player, a competitive champion, or anything in between, you're invited to join our community of Legends. Let's embark on this epic journey together, where every game is a story waiting to be told, and every victory is a testament to the spirit of camaraderie that defines Loot Legends. Join us today and be a part of the legacy.</p>
-    <Footer />
   </div>
   )}

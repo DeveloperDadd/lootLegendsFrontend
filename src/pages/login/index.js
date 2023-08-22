@@ -34,7 +34,6 @@ function Login() {
 
     return (
         <div>
-            <Navbar />
             <div className='flex'>
                 <form
                     onSubmit={handleLogin}
@@ -72,7 +71,6 @@ function Login() {
                     </div>
                 </form>
             </div>
-            <Footer />
         </div>
     )
 }

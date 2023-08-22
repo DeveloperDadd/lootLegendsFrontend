@@ -16,11 +16,9 @@ export default function Home() {
 
     return(
         <>
-        <Navbar />
         <Hero />
         <Search />
         <Browse />
-        <Footer />
         </>
     )
 }
