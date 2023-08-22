@@ -6,8 +6,14 @@
     margin: 0;
 }
 
+html {
+    background: url(../images/background.jpg) no-repeat center center fixed;
+    background: transparent;
+}
+
 body {
     background-color: #333333;
+    background: url(../images/background.jpg) center center fixed;
 }
 
 .maxContainer {
