@@ -29,10 +29,10 @@ export default function Button({onPageChange}) {
 
     return(
         <nav>
-            <button onClick={goAbout}>About Us</button>
-            <button onClick={goLogin} >Login</button>
-            <img onClick={goHome} className="icon" src="https://raw.githubusercontent.com/DeveloperDadd/lootLegendsFrontend/c7e657337c24258e72a3a3d3d5cd98e416f134de/src/images/house-solid.svg" />
-            <img onClick={goDashboard} className="icon" src="https://raw.githubusercontent.com/DeveloperDadd/lootLegendsFrontend/c7e657337c24258e72a3a3d3d5cd98e416f134de/src/images/user-solid.svg" />
+            <Link href="/about"><button>About Us</button></Link>
+            <Link href="/login"><button>Login</button></Link>
+            <Link href="/home"><img className="icon" src="https://raw.githubusercontent.com/DeveloperDadd/lootLegendsFrontend/c7e657337c24258e72a3a3d3d5cd98e416f134de/src/images/house-solid.svg" /></Link>
+            <Link href="/dashboard"><img onClick={goDashboard} className="icon" src="https://raw.githubusercontent.com/DeveloperDadd/lootLegendsFrontend/c7e657337c24258e72a3a3d3d5cd98e416f134de/src/images/user-solid.svg" /></Link>
         </nav>
     )
 }
