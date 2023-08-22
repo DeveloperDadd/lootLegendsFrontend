@@ -1,5 +1,5 @@
-import styles from '../styles/global.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from '../styles/global.css';
 import { useState, useEffect } from 'react';
 import { GlobalStateProvider } from '../context/GlobalState';
 import Navbar from '../components/navbar';
