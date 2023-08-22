@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 import { useGlobalState } from '../../context/GlobalState';
 import authService from '../../services/auth.service';
 import jwtDecode from 'jwt-decode'; //<---- Whats that?
-import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
 
 function Login() {
     const router = useRouter();
 
-    const [ state, dispatch ] = useGlobalState();
+    const { state, dispatch } = useGlobalState();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,7 +32,7 @@ function Login() {
 
     return (
         <div>
-            <Header />
+          <Navbar />
             <div className='flex'>
                 <form
                     onSubmit={handleLogin}
@@ -42,7 +42,7 @@ function Login() {
                         <label htmlFor="email">Email:</label>
                         <input
                             className='border'
-                            type="text"
+                            type="password"
                             id="email"
                             name="email"
                             onChange={(e) => setEmail(e.target.value)}

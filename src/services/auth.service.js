@@ -5,7 +5,8 @@ import {
   } from './auth.constants';
   
   import request from './api.request';
-  
+  import { useGlobalState } from '../context/GlobalState';
+
   class AuthService {
     constructor() {
       this.login = this.login.bind(this);
@@ -13,12 +14,14 @@ import {
   
     async login(email, password) {
       try {
+        const username = email;
         const response = await request({
           url: LOGIN_ENDPOINT,
           method: 'POST',
           data: {
             email,
             password,
+            username,
           },
         });
   

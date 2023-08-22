@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useGlobalState } from "../context/GlobalState";
 import { useRouter } from "next/navigation";
 import HeroImg from './HeroImg';
-import Register from '../pages/Register/Register'
+import Register from './Register';
 
 export default function Hero() {
     return(

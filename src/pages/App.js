@@ -6,6 +6,9 @@ import Login from './login/index';
 import { GlobalStateProvider } from '../context/GlobalState';
 
 export default function App() {
+
+    /* on load check local storage, set state depending on if user is logged in or not */ 
+
     const [currentPage, setCurrentPage] = useState('home');
 
     const handlePageChange = (newPage) => {
@@ -21,7 +24,7 @@ export default function App() {
         {currentPage === 'home' && <Home />}
         {currentPage === 'about' && <About />}
         {currentPage === 'login' && <Login />}
-    </div>
+      </div>
     </GlobalStateProvider>
     )
 }
