@@ -2,20 +2,20 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useGlobalState } from '../../context/GlobalState';
 import authService from '../../services/auth.service';
-import jwtDecode from 'jwt-decode';
-import Footer from '../../components/Footer';
+import jwtDecode from 'jwt-decode'; //<---- Whats that?
+import Header from '../../components/Header';
 
-export default function Login() {
+function Login() {
     const router = useRouter();
 
-    const { state, dispatch } = useGlobalState();
+    const [ state, dispatch ] = useGlobalState();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     function handleLogin(e) {
         e.preventDefault();
-        const username = email;
+        // console.log(email.current.value , password.current.value , "HERE")
         authService
             .login(email, password)
             .then(async (resp) => {
@@ -32,6 +32,7 @@ export default function Login() {
 
     return (
         <div>
+            <Header />
             <div className='flex'>
                 <form
                     onSubmit={handleLogin}
@@ -69,7 +70,8 @@ export default function Login() {
                     </div>
                 </form>
             </div>
-            <Footer />
         </div>
     )
 }
+
+export default Login
