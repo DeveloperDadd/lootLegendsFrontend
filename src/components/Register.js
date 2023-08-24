@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import AuthService from '../services/auth.service';
+import React, { useEffect, useState,} from "react";
+import AuthService from "../services/auth.service";
 import { useRouter } from "next/navigation";
-import { useGlobalState } from '../context/GlobalState';
+import { useGlobalState } from "../context/GlobalState";
+import jwtDecode from 'jwt-decode';
 
 export default function Register() {
   const {state, dispatch} = useGlobalState();
@@ -24,15 +25,27 @@ export default function Register() {
   };
 
   async function handleRegister(e) {
-    console.log(e);
     e.preventDefault();
-    user.username=user.email;
-    AuthService.register(user);
-    dispatch({
-      currentUserToken: state.currentUserToken,
-      currentUser: state.currentUser?.user_id,
-    });
-    router.push("/dashboard");
+    
+    try {
+      await AuthService.register(user);
+      
+      const loginResp = await AuthService.login(user.email, user.password, user.username);
+  
+      if (loginResp.access) {
+        const data = jwtDecode(loginResp.access);
+        await dispatch({
+          type: 'SET_USER',
+          payload: data,
+        });
+        router.push('/');
+      } else {
+        console.log('Login after registration failed');
+        dispatch({ type: 'LOGOUT_USER' });
+      }
+    } catch (error) {
+      console.error('Registration failed:', error);
+    }
   }
 
   return (

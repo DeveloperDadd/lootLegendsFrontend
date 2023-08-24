@@ -2,34 +2,54 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useGlobalState } from '../../context/GlobalState';
 import authService from '../../services/auth.service';
-import jwtDecode from 'jwt-decode'; //<---- Whats that?
-import Footer from '../../components/Footer';
-import Navbar from '../../components/navbar';
-
-
+import jwtDecode from 'jwt-decode';
+import { useEffect } from 'react';
 
 function Login() {
     const router = useRouter();
-
     const { state, dispatch } = useGlobalState();
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function handleLogin(e) {
+    const handleLogin = (e) => {
         e.preventDefault();
-        // console.log(email.current.value , password.current.value , "HERE")
+        const username = email;
         authService
-            .login(email, password)
+            .login(email, password, username)
             .then(async (resp) => {
-                let data = jwtDecode(resp.access)
-                await dispatch({
-                    currentUserToken: resp.access,
-                    currentUser: data
-                })
-                router.push('/dashboard')
+                console.log(resp);
+                if (resp.access) {
+                    let data = jwtDecode(resp.access);
+                    await dispatch({
+                        type: 'SET_USER',
+                        payload: data,
+                    });
+                    router.push('/');
+                } else {
+                    console.log('Login failed');
+                    dispatch({ type: 'LOGOUT_USER' });
+                }
             });
-    }
+    };
+
+
+  useEffect(() => {
+    // Function to retrieve user data from local storage
+    const getUserFromLocalStorage = () => {
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        const user = jwtDecode(userData);
+        console.log('User data:', user); 
+        dispatch({
+            type: 'SET_USER',
+            payload: user
+        });
+      }
+    };
+
+    getUserFromLocalStorage();
+    
+  }, []);
 
 
     return (

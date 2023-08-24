@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-
+import { useGlobalState } from "../context/GlobalState";
 const APIKEY = '752261bddc104be7860f16124d616255';
 const url = `https://api.rawg.io/api/games?key=${APIKEY}&dates=2020-01-01,2023-08-17&ordering=-added&page_size=9`;
 
 export default function Browse() {
     const [games, setGames] = useState([]);
-
+    const {state, dispatch } = useGlobalState();
     useEffect(() => {
         const axios = require('axios');
 
@@ -21,7 +21,25 @@ export default function Browse() {
     }, []);  
 
 
-    
+    const addFavorites = async (e) => {
+        const axios = require('axios');
+        const user_id = state.user.user_id;
+        const gameInfo = {
+            game_title: games.name,
+            user_id: user_id,
+            rawg_id: games.id,
+            game_image: games.background_image,
+            game_rating: games.rating,
+            game_description: games.description,
+        };
+        axios.post('http://127.0.0.1/8000/api/add-to-favorites/', gameInfo)
+        .then(response => {
+            console.log('Successfully added to favorite games', response.data);
+        })
+        .catch(error => {
+            console.error('Error posting data:', error)
+        }) 
+    }
 
     return (
         <div className="gamesContainer container-fluid">
@@ -35,7 +53,7 @@ export default function Browse() {
                             <ul className="list-group list-group-flush">
                             <li className="list-group-item">Overall Rating: {game.rating}</li>
                             <li className="list-group-item">Release Date : {game.released}</li>
-                            <li className="list-group-item"><a href="#">Add this game to your favorites!</a></li>
+                            <li className="list-group-item"><button onClick={addFavorites}>Add this game to your favorites!</button></li>
                             </ul>
                         </div>
                     </div> 
