@@ -1,7 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../styles/global.css';
-import { useState, useEffect } from 'react';
-import Router from 'next/router';
 import { GlobalStateProvider, useGlobalState } from '../context/GlobalState';
 import Navbar from '../components/navbar';
 import Home from './Home';
@@ -10,7 +8,7 @@ import Login from './login';
 import Dashboard from './dashboard';
 import Footer from '../components/Footer';
 import { useRouter } from 'next/router';
-import jwtDecode from 'jwt-decode';
+
 
 export default function MyApp({ Component, pageProps }) {
     const router = useRouter();

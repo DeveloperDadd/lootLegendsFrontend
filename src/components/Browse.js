@@ -32,7 +32,7 @@ export default function Browse() {
             game_rating: games.rating,
             game_description: games.description,
         };
-        axios.post('http://127.0.0.1/8000/api/add-to-favorites/', gameInfo)
+        axios.post('http://127.0.0.1:8000/api/add-to-favorites/', gameInfo)
         .then(response => {
             console.log('Successfully added to favorite games', response.data);
         })

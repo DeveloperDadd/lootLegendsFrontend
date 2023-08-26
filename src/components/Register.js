@@ -1,5 +1,5 @@
 import React, { useEffect, useState,} from "react";
-import AuthService from "../services/auth.service";
+import  AuthService  from "../services/auth.service";
 import { useRouter } from "next/navigation";
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from 'jwt-decode';
@@ -8,16 +8,15 @@ export default function Register() {
   const {state, dispatch} = useGlobalState();
   const router = useRouter();
   const [user, setUser] = useState({
-    password: "",
+    username: "",
     passwordConf: "",
     firstName: "",
     lastName: "",
     email: "",
-    username: "",
   });
 
   const handleChange = (key, value) => {
-    console.log(value);
+    
     setUser({
       ...user,
       [key]: value,
@@ -26,26 +25,12 @@ export default function Register() {
 
   async function handleRegister(e) {
     e.preventDefault();
-    
-    try {
-      await AuthService.register(user);
-      
-      const loginResp = await AuthService.login(user.email, user.password, user.username);
-  
-      if (loginResp.access) {
-        const data = jwtDecode(loginResp.access);
-        await dispatch({
-          type: 'SET_USER',
-          payload: data,
-        });
-        router.push('/');
-      } else {
-        console.log('Login after registration failed');
-        dispatch({ type: 'LOGOUT_USER' });
-      }
-    } catch (error) {
-      console.error('Registration failed:', error);
-    }
+    AuthService.register(user);
+    dispatch({
+      currentUserToken: state.currentUserToken,
+      currentUser: state.currentUser?.user_id,
+    });
+    router.push("/dashboard");
   }
 
   return (
@@ -53,6 +38,16 @@ export default function Register() {
       <div className="flex">
         <form className="mx-auto border-2 bg-mtgray" onSubmit={handleRegister}>
         <h2 className="formHeader">Make an account!</h2>
+          <div className="inputContainer flex space-between m-3 space-x-2">
+            <label htmlFor="username">Username:</label>
+              <input
+                className="border"
+                type="text"
+                id="username"
+                required
+                onChange={(e) => handleChange("username", e.target.value)}
+              />
+          </div>
           <div className="inputContainer flex space-between m-3 space-x-2">
             <label htmlFor="firstName">First Name:</label>
               <input

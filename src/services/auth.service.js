@@ -5,6 +5,7 @@ import {
 } from './auth.constants';
 
 import request from './api.request';
+import { constants } from 'buffer';
 
 class AuthService {
   constructor() {
@@ -12,6 +13,7 @@ class AuthService {
   }
 
   async login(email, password, username) {
+    
     try {
       const response = await request({
         url: LOGIN_ENDPOINT,

@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { useGlobalState } from "../context/GlobalState";
 import { useRouter } from "next/navigation";
-import { authHeader } from '../services/auth.headers';
+import authHeader from '../services/auth.headers';
+import axios from 'axios'
 
 const APIKEY = '752261bddc104be7860f16124d616255';
 const url = `https://api.rawg.io/api/games?key=${APIKEY}&dates=2020-01-01,2023-08-17&ordering=-added`;
@@ -30,7 +31,7 @@ export default function Search() {
                     console.log(response.data);
                 })
                 .catch(error => {
-                    console.log('Fail!');
+                    console.log(error.response.data);
                 });
             setUserInput("");
         }
@@ -38,20 +39,27 @@ export default function Search() {
 
     /* This functions takes certain game data and sends it to the backend as a user favorite game to be called back in the future and tied to that particular user in future login sessions */
 
-    const addFavorites = async (e) => {
+    const addFavorites = async (id) => {
         const axios = require('axios');
         const user_id = state.user.user_id;
+        const single_game = gameData.filter((item) => item.id == id);
+        console.log(single_game);
         const gameInfo = {
-            game: gameData.name,
-            user_id: user_id,
+            game_title: single_game[0].name,
+            rawg_id: single_game[0].id,
+            game_image_url: single_game[0].background_image,
+            game_rating: single_game[0].esrb_rating.name,
+            genre: single_game[0].genres[0]
         };
+        gameInfo.user_id = user_id;
+        console.log(gameInfo);
         const header = authHeader();
-        axios.post('http://127.0.0.1/8000/api/add-to-favorites/', gameInfo, header)
+        axios.post('http://127.0.0.1:8000/api/add-to-favorites/', gameInfo, header)
         .then(response => {
             console.log('Successfully added to favorite games', response.data);
         })
         .catch(error => {
-            console.error('Error posting data:', error)
+            console.error('Error posting data:', error.response)
         }) 
     }
 
@@ -80,7 +88,7 @@ export default function Search() {
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item">Overall Rating: {game.rating}</li>
                                     <li className="list-group-item">Release Date: {game.released}</li>
-                                    <li className="list-group-item"><button onClick={addFavorites}>Add this game to your favorites!</button></li>
+                                    <li className="list-group-item"><button onClick={(e)=>addFavorites(game.id)}>Add this game to your favorites!</button></li>
                                 </ul>
                             </div>
                         </div>
