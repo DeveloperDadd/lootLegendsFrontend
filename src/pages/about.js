@@ -1,4 +1,22 @@
 export default function About() {
+
+  useEffect(() => {
+    // Function to retrieve user data from local storage
+    const getUserFromLocalStorage = () => {
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        const user = jwtDecode(userData);
+        console.log('User data:', user); 
+        dispatch({
+            type: 'SET_USER',
+            payload: user
+        });
+      }
+    };
+
+    getUserFromLocalStorage();
+    
+  }, []);
     
     return (<div>
       <h1>About Loot Legends: Uniting Gamers, Forging Legends</h1>
