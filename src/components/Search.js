@@ -29,7 +29,7 @@ export default function Search() {
             await axios.get(`https://api.rawg.io/api/games?key=${APIKEY}&search=${slug}&page_size=3`)
                 .then(response => {
                     setGameData(response.data.results);
-                    console.log(response.data);
+                    console.log(response.data.results[0].id);
                 })
                 .catch(error => {
                     console.log(error.response.data);
@@ -37,7 +37,6 @@ export default function Search() {
             setUserInput("");
         }
     }
-
 
 
     /* This functions takes certain game data and sends it to the backend as a user favorite game to be called back in the future and tied to that particular user in future login sessions */
@@ -84,22 +83,14 @@ export default function Search() {
                         <div className="card col-3 m-1 border rounded" key={game.id}>
                             <div className="col">
 
-                                <Link href={`..pages/[slug]/page`} as={`../pages/${slug}/page`} passHref style={{ textDecoration: 'none' }}>
+                                
                                     <img className="card-img-top img-fluid" src={game.background_image} alt={game.name} onClick={() =>
-                                        router.push(
-                                            {
-                                                pathname: `/pages/[slug]/page`,
-                                                query: { slug: game.slug},
-                                            },
-                                            undefined, // Remove unnecessary parameters
-                                            { shallow: false, state: { gameData: JSON.stringify(game) } }
-                                        )
+                                      clickHandler(game)
                                     }
                                     />
                                     <div className="card-body">
                                         <h4 className="card-title text-center">{game.name}</h4>
                                     </div>
-                                </Link>
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item">Overall Rating: {game.rating}</li>
                                     <li className="list-group-item">Release Date: {game.released}</li>

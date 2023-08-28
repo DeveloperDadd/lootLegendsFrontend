@@ -4,8 +4,8 @@ import Button from './Button.js';
 
 export default function Navbar({ onPageChange }) {
   return (
-    <div className="nav">
-        <SmallIcon />
+    <div>
+        <SmallIcon className="img-fluid" />
         <div className="buttonsList">
           <Button onPageChange={onPageChange}/>
         </div>

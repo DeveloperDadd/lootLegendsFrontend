@@ -30,11 +30,21 @@ body {
     margin: 15px 0;
 }
 
+
+
 .smallicon {
     height: auto;
-    max-width: 200px;
+    max-width: 300px;
 }
 
+.signin-button {
+    background-color: #007acc;
+    border: none;
+}
+
+.signin-button:hover {
+    background-color: darkblue;
+}
 
 .registerButton, button {
     border-radius: 5px;
@@ -48,6 +58,14 @@ body {
 .registerButton:hover, button:hover{
     background-color: green;
     cursor: pointer;
+}
+
+.login {
+    background-color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 h1, h2, h3 {

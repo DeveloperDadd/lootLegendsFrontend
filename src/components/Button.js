@@ -32,12 +32,7 @@ export default function Button({onPageChange}) {
             <Link href="/about"><button>About Us</button></Link>
             <Link href="/login"><button>Login</button></Link>
             <Link href="/"><img className="icon" src="https://raw.githubusercontent.com/DeveloperDadd/lootLegendsFrontend/c7e657337c24258e72a3a3d3d5cd98e416f134de/src/images/house-solid.svg" /></Link>
-            <div className="dropdown">
-
             <Link href="/dashboard"><img onClick={goDashboard} className="icon dropdown-toggle" src="https://raw.githubusercontent.com/DeveloperDadd/lootLegendsFrontend/c7e657337c24258e72a3a3d3d5cd98e416f134de/src/images/user-solid.svg" /></Link>
-
-            </div>
-           
         </nav>
     )
 }

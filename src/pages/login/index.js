@@ -49,10 +49,10 @@ function Login() {
 
     return (
         <div>
-            <div className='flex'>
+            <div className='flex m-5'>
                 <form
                     onSubmit={handleLogin}
-                    className='mx-auto my-auto border-2 bg-mtgray'
+                    className='login col-6 container-fluid text-center rounded p-5 border-2 bg-mtgray'
                 >
                     <div className='flex justify-between m-2 items-center space-x-2'>
                         <label htmlFor="username">Username:</label>
@@ -90,7 +90,7 @@ function Login() {
                     </div>
                     <div className='flex'>
                         <input
-                            className="bg-mtpurple text-white py-2 px-4 rounded-lg mx-auto my-2 font-bold disabled:opacity-60"
+                            className="signin-button bg-mtpurple text-white py-2 px-4 rounded-lg m-auto font-bold disabled:opacity-60"
                             type="submit"
                             value="Sign in"
                         />
