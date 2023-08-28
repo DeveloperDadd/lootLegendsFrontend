@@ -1,28 +1,17 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { useGlobalState } from '../../context/GlobalState'
+import React from "react";
 
-export default function GamePage() {
-    const router = useRouter();
-    const {state, dispatch} = useGlobalState();
-    const gameDataJson = router.query.slug;
+export default function Game() {
+  return(
+    <div>
+      <h1>Hello There</h1>
+    </div>
+  )
+}
 
-    const gameData = router.query.state?.gameData
-    ? JSON.parse(router.query.state.gameData)
-    : null;
+export async function getStaticPaths() {
 
-    console.log(gameData);
-    return (
-        <div>
-          {gameData ? (
-            <div>
-              <h1>{gameData.name}</h1>
-              <img src={gameData.background_image} alt={gameData.name} />
-              {/* Display other game information */}
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-      );
-};
+}
+
+export async function getStaticProps({ params }) {
+  
+}

@@ -5,7 +5,7 @@ import { useGlobalState } from "../context/GlobalState";
 import { useRouter } from "next/navigation";
 import authHeader from '../services/auth.headers';
 import axios from 'axios'
-
+import GamePage from '../pages/[slug]/page'
 
 const APIKEY = '752261bddc104be7860f16124d616255';
 
@@ -83,14 +83,17 @@ export default function Search() {
                         <div className="card col-3 m-1 border rounded" key={game.id}>
                             <div className="col">
 
-                                
-                                    <img className="card-img-top img-fluid" src={game.background_image} alt={game.name} onClick={() =>
-                                      clickHandler(game)
-                                    }
-                                    />
-                                    <div className="card-body">
-                                        <h4 className="card-title text-center">{game.name}</h4>
-                                    </div>
+
+                                <img className="card-img-top img-fluid popup-link" src={game.background_image} alt={game.name} href="#"
+                                />
+                                <div className="popup-window">
+                                    <h1>{game.name}</h1>
+                                    <p></p>
+                                    <button id="close-button">Close</button>
+                                </div>
+                                <div className="card-body">
+                                    <Link href="../pages/[slug]/page"><h4 className="card-title text-center">{game.name}</h4></Link>
+                                </div>
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item">Overall Rating: {game.rating}</li>
                                     <li className="list-group-item">Release Date: {game.released}</li>
